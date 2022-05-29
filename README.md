@@ -65,11 +65,11 @@ Four Tables has been created.
    
 2. Monthly Top 10
    *Actual Data
-    ```
+    ```SQL
    Select Year,Month,Monthly_Cnt,Longitude,Latitude from prod_top_ten_monthly order by Monthly_Cnt desc limit 10
    ```
    *Expected Data
-    ```
+    ```SQL
    Select Year,Month,Monthly_Cnt,Longitude,Latitude from ( Select cnt.sensor_id,cnt.sensor_name,cnt.year,
    cnt.month,loc.longitude, loc.latitude,sum(hourly_counts) as monthly_cnt 
    from prod_source_sensor_cnt cnt, prod_source_sensor_loc loc where cnt.sensor_id = loc.sensor_id 
