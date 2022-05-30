@@ -11,7 +11,8 @@ def test_only_10_recs_gen_for_day():
     dailyCntDF = pd.read_sql(query,conn)
     dailyCnt = dailyCntDF.iloc[0]['rec_cnt']
     validate.equal(dailyCnt,10,'The daily prediction is not for Top 10, it is more/less than 10')
-    print("Successfully validated that generated daily top 10 is of 10 records only")
+    if dailyCnt == 10:
+     print("Successfully validated that generated daily top 10 is of 10 records only")
 
 
 def test_only_10_recs_gen_for_month():
@@ -20,7 +21,8 @@ def test_only_10_recs_gen_for_month():
     dailyCntDF = pd.read_sql(query,conn)
     dailyCnt = dailyCntDF.iloc[0]['rec_cnt']
     validate.equal(dailyCnt,10,'The monthly prediction is not for Top 10, it is more/less than 10')
-    print("Successfully validated that generated monthly top 10 is of 10 records only")
+    if dailyCnt == 10:
+        print("Successfully validated that generated monthly top 10 is of 10 records only")
 
 
 def test_top_10_ped_by_day_gen():
